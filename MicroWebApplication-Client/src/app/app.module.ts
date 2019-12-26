@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatsComponent } from './chats/chats.component';
+import { MessageListComponent } from './chats/message-list/message-list.component';
+import { NewMessageComponent } from './chats/new-message/new-message.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatsComponent,
+    MessageListComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,
