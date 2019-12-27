@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChatService } from "src/app/services/chat.service";
 import { HeaderComponent } from './components/layout-components/header/header.component';
 import { MainComponentComponent } from './components/layout-components/main-component/main-component.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -29,13 +31,15 @@ import { MainComponentComponent } from './components/layout-components/main-comp
     UserListComponent,
     MessageListComponent,
     HeaderComponent,
-    MainComponentComponent
+    MainComponentComponent,
+    RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [ChatService],
   bootstrap: [AppComponent]
 })

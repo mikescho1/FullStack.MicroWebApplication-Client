@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MessageService } from '../../services/message.service';
 
 
 @Component({
@@ -9,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit() {
+    this.messageService.getAllMessages(1).subscribe(response => console.log(response));
   }
 
 }

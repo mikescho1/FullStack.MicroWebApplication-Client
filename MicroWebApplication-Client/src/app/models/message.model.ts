@@ -17,5 +17,4 @@ constructor(id: number, timeStamp: string, messageBody: string, sender: User, de
     this.destinationChat = destinationChat;
 }
 
-
 }

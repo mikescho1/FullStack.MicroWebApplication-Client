@@ -1,5 +1,5 @@
-<div class="form-group">
-    <input type="text"
+<div class="form-group" (keyup.enter)="sendMessage()">
+    <input [(ngModel)]="input" type="text"
     class="form-control"
     placeholder="Send New Message"/>
 </div>>
