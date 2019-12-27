@@ -1,30 +1,13 @@
-<!-- code copied from  https://bootsnipp.com/snippets/5MaWv just as a sample test-->
+<ul class="list-group">
+    <li *ngFor="let message of message" class="list-group-item">
+        <div class="mesage-checkbox">
+            <input type="checkbox"
+                   class="list-child"
+                   (change)="onTaskChange($event,task)"
+                   [checked]="task.completed">
+            <span ngClass="{{task.completed ? 'name completed' : 'name'}}">{{ task.name }}</span>
+            <span class="label {{ getDueDateLabel(task) }} pull-right"> {{ task.dueDate }}</span>
+        </div>
+    </li>
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<div class="messaging">
-  <div class="inbox_msg">
-	<div class="inbox_people">
-	  <div class="headind_srch">
-		<div class="recent_heading">
-		  <h4>Recent</h4>
-		</div>
-		<div class="srch_bar">
-		  <div class="stylish-input-group">
-			<input type="text" class="search-bar"  placeholder="Search" >
-			</div>
-		</div>
+</ul>
