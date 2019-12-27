@@ -11,6 +11,10 @@ import { AddUserComponent } from './components/user/add-user/add-user.component'
 import { EditUserComponent } from './components/user/edit-user/edit-user.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { MessageListComponent } from './components/chat/message-list/message-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ChatService } from "src/app/services/chat.service";
+import { HeaderComponent } from './components/layout-components/header/header.component';
+import { MainComponentComponent } from './components/layout-components/main-component/main-component.component';
 
 
 @NgModule({
@@ -23,13 +27,17 @@ import { MessageListComponent } from './components/chat/message-list/message-lis
     AddUserComponent,
     EditUserComponent,
     UserListComponent,
-    MessageListComponent
+    MessageListComponent,
+    HeaderComponent,
+    MainComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
