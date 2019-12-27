@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { EditUserComponent } from './components/user/edit-user/edit-user.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
+import { MessageListComponent } from './components/chat/message-list/message-list.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
     LoginComponent,
     AddUserComponent,
     EditUserComponent,
-    UserListComponent
+    UserListComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
