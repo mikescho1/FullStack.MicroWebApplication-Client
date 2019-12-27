@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-new-message',
   templateUrl: './new-message.component.html',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewMessageComponent implements OnInit {
 
+  message
   constructor() { }
 
   ngOnInit() {

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatsComponent } from './components/chat/chats.component';
-import { MessageListComponent } from './components/chat/message-list/message-list.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { MessageComponent } from './components/chat/message/message.component';
 import { NewMessageComponent } from './components/chat/new-message/new-message.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
@@ -14,8 +14,8 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
 @NgModule({
   declarations: [
     AppComponent,
-    ChatsComponent,
-    MessageListComponent,
+    ChatComponent,
+    MessageComponent,
     NewMessageComponent,
     LoginComponent,
     AddUserComponent,
