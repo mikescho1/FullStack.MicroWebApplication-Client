@@ -15,7 +15,8 @@ export class MessageListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.message.push( new Message(1, "chat1", "12/26/19", new User(1, "mikes", "password", "mike.schoenbeck@gmail.com", 1), new Chat(1, "chat1", "12/26/19") ));
+    this.message.push( new Message(1, "12/26/19", "hi", new User(1, "mikes", "password", "mike.schoenbeck@gmail.com", 1), new Chat(1, "chat1", "12/26/19") ));
+    this.message.push( new Message(1, "12/26/19", "hi back", new User(2, "kievina", "password", "kievina@udel.edu", 1), new Chat(1, "chat1", "12/26/19") ));
   }
 
 }
