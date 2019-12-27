@@ -16,6 +16,7 @@ import { ChatService } from "src/app/services/chat.service";
 import { HeaderComponent } from './components/layout-components/header/header.component';
 import { MainComponentComponent } from './components/layout-components/main-component/main-component.component';
 import { RegisterComponent } from './register/register.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -33,11 +34,12 @@ import { RegisterComponent } from './register/register.component';
     MainComponentComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [ChatService],
   bootstrap: [AppComponent]
 })
