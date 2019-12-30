@@ -1,5 +1,25 @@
-<label><input id="register-email-input" type="text" name="email-val" placeholder="Email" ></label>
-<label><input id="register-username-input" type="text" name="username-val" placeholder="Username" ></label>
-<label><input id="register-password-input" type="password" name="password-val" placeholder="Password" ></label>
-<button id="user-register-submit">Create Account</button>
-<p class="login">Already have an account? <a routerLink="/login" routerLinkActive="active" class="login-switch link">Login</a></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-auto">
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+        <div class="form-group">
+          <label class="sr-only" for="InputEmail"></label>
+          <input type="email" class="form-control" id="InputEmail" placeholder="Email" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="InputUsername"></label>
+          <input type="text" class="form-control" id="InputUsername" placeholder="Username" formControlName="userName">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="InputPassword"></label>
+          <input type="password" class="form-control" id="InputPassword" placeholder="Password" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+
+        <p class="login">Already have an account? <a routerLink="/login" routerLinkActive="active" class="login-switch link">Login</a></p>
+      </form>
+
+    </div>
+  </div>
+</div>
