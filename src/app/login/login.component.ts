@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.loginUser(this.loginForm.value.userName).subscribe( response => {
       console.log(response);
-      console.log('Woo!');
       this.router.navigate(['hub']);
     }, error => console.log('Oh No!'));
   }

@@ -8,13 +8,17 @@ import { HubComponent } from './hub/hub.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserChatsComponent } from './hub/user-chats/user-chats.component';
+import { ChatMessagesComponent } from './hub/chat-messages/chat-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HubComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserChatsComponent,
+    ChatMessagesComponent
   ],
   imports: [
     BrowserModule,
