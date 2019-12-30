@@ -1,33 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = '/users'
+  currentUser;
 
   constructor(private http: HttpClient) { }
 
-  getUser(userId: number): Observable<object> {
-    return this.http.get(`${this.baseUrl}/${userId}`);
+  getCurrentUser() {
+    return this.currentUser;
   }
 
-  createUser(user: Object): Observable<Object>  {
-    return this.http.post(`${this.baseUrl}`, user);
+  loginUser(username) {
+    return this.http.get(`http://localhost:8080/user/${username}/login`)
+      .pipe(
+        map(result => {
+          console.log('Woo');
+          this.currentUser = result;
+        }),
+        catchError(error => {
+          console.log('Oh No, mi pipe');
+          return of();
+        })
+      );
   }
 
-  updateUserName(userId: number, userName: string): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${userId}`, userName);
+  registerUser(user) {
+    return this.http.post(`http://localhost:8080/user/`, user)
+      .pipe(
+        map(result => {
+          console.log('Woo');
+          this.currentUser = result;
+        }),
+        catchError(error => {
+          console.log('Oh No, mi pipe');
+          return of();
+        })
+      );
   }
-
-  deleteUser(userId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${userId}`, {responseType: 'text' });
-  }
-
-  getUserList(): Observable<any>  {
-    return this.http.get(`${this.baseUrl}`);
-  }
-
 }
