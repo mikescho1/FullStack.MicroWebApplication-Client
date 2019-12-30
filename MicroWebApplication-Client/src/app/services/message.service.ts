@@ -10,6 +10,7 @@ export class MessageService {
   private baseUrl = '/messages'
 
   constructor(private http: HttpClient) { }
+  
   getMessage(messageId: number): Observable<object> {
     return this.http.get(`${this.baseUrl}/${messageId}`);
   }
