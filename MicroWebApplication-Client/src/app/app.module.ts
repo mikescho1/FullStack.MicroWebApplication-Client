@@ -16,6 +16,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserChatsComponent } from './components/user-chats/user-chats.component';
+import { PollComponent } from './components/poll/poll.component';
+
+import { OptionComponent } from './components/option/option.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
+
+import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
+
 
 
 @NgModule({
@@ -32,6 +39,8 @@ import { UserChatsComponent } from './components/user-chats/user-chats.component
     RegisterComponent,
     LoginComponent,
     UserChatsComponent,
+    PollComponent,
+    OptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +48,8 @@ import { UserChatsComponent } from './components/user-chats/user-chats.component
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    MomentModule,
+    NgIdleKeepaliveModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
