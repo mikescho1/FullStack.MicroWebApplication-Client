@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PollService } from '../../../services/poll.service';
-import { Option } from '../../../models/poll/option';
-import { Question } from '../../../models/poll/question';
-import { Poll } from '../../../models/poll/poll';
-import { PollConfig } from '../../../models/poll/poll-config';
+import { PollService } from '../../../../services/poll.service';
+import { Option } from '../../../../models/poll/option';
+import { Question } from '../../../../models/poll/question';
+import { Poll } from '../../../../models/poll/poll';
+import { PollConfig } from '../../../../models/poll/poll-config';
+
+
+
+// This poll setup was taken from https://www.codeproject.com/articles/1167451/quiz-application-in-angular  ---MS
 
 @Component({
   selector: 'app-poll',

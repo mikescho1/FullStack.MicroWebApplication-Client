@@ -1,6 +1,8 @@
 
 <router-outlet></router-outlet>
 
+
+<!-- The below snippet is related to the user idle/active status. See https://github.com/moribvndvs/ng2-idle-example-->
 <p><strong>{{idleState}}</strong></p>
 <p *ngIf="lastPing"><small>Last keepalive ping <strong>{{lastPing | amTimeAgo}}</strong></small></p>
 <button (click)="reset()" *ngIf="timedOut">Restart</button>
