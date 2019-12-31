@@ -1,8 +1,12 @@
 
 <router-outlet></router-outlet>
+<!-- <app-hub></app-hub> -->
 
 
-<!-- The below snippet is related to the user idle/active status. See https://github.com/moribvndvs/ng2-idle-example-->
+<!-- The below snippet is related to the user idle/active status. It displays a timer box so that we can verify that it is working. 
+    This snippet gets removed for production version of our app. Idle/active logic is written in app.coponent.ts. 
+    See https://github.com/moribvndvs/ng2-idle-example    ---- MS-->
+    
 <p><strong>{{idleState}}</strong></p>
 <p *ngIf="lastPing"><small>Last keepalive ping <strong>{{lastPing | amTimeAgo}}</strong></small></p>
 <button (click)="reset()" *ngIf="timedOut">Restart</button>

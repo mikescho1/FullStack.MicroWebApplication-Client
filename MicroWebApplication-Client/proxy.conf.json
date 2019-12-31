@@ -1,0 +1,6 @@
+{
+    "/chats":   {
+        "target": "http://142.93.255.199:8080",
+        "secure": true
+    }
+}
