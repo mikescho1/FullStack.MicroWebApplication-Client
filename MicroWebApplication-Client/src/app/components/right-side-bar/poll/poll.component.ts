@@ -25,7 +25,6 @@ export class PollComponent implements OnInit {
     'pageSize': 1,
     'requiredAll': true,  // indicates if you must answer all the questions before submitting.
     'richText': false,
-    'shuffleQuestions': false,
     'shuffleOptions': false,
     'showClock': false,
     'showPager': true,
