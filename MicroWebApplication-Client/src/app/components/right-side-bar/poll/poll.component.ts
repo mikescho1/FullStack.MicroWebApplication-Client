@@ -86,7 +86,7 @@ export class PollComponent implements OnInit {
 
   onSelect(question: Question, option: Option) {
     if (question.questionTypeId === 1) {
-      question.options.forEach((x) => { if (x.id !== option.id) x.selected = false; });
+      question.options.forEach((x) => { if (x.questionId !== option.optionId) x.selected = false; });
     }
 
     if (this.config.autoMove) {
@@ -111,7 +111,7 @@ export class PollComponent implements OnInit {
 
   onSubmit() {
     let answers = [];
-    this.poll.questions.forEach(x => answers.push({ 'pollId': this.poll.id, 'questionId': x.id, 'answered': x.answered }));
+    this.poll.questions.forEach(x => answers.push({ 'pollId': this.poll.pollId, 'questionId': x.questionId, 'answered': x.answered }));
 
     // Post your data to the server here. answers contains the questionId and the users' answer.
     console.log(this.poll.questions);
