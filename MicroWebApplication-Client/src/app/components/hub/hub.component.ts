@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-hub',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HubComponent implements OnInit {
 
-  constructor() { }
+  private currentUser: User;
+
+  constructor(private userService: UserService) {
+    this.currentUser = userService.getCurrentUser();
+  }
 
   ngOnInit() {
   }
