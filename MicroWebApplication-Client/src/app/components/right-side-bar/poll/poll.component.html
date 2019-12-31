@@ -1,14 +1,69 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Realtime voting with Ably</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="https://cdn.ably.io/lib/ably.min-1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+<div class="row">
+    <div class="col-6">
+      <h3>Poll Application</h3>
+    </div>
+    <div class="col-6 text-right">
+      Select Poll:
+      <select [(ngModel)]="pollName" (change)="loadPoll(pollName)">
+        <option *ngFor="let poll of polles" [value]="poll.id">{{poll.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div id="poll">
+    <h2 class="text-center font-weight-normal">{{poll.name}}</h2>
+    <hr />
+  
+    <div *ngIf="mode=='poll' && poll">
+      <div *ngFor="let question of filteredQuestions;">
+        <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
+        <div *ngIf="config.duration" class="badge badge-info float-right">Time: {{ellapsedTime}} / {{duration}}</div>
+        <h3 class="font-weight-normal">{{pager.index + 1}}.
+          <span [innerHTML]="question.name"></span>
+        </h3>
+        <div class="row text-left options">
+          <div class="col-6" *ngFor="let option of question.options">
+            <div class="option">
+              <label class="font-weight-normal" [attr.for]="option.id">
+                <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" /> {{option.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="text-center">
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">Prev</button>
+        <button class="btn btn-primary" (click)="goTo(pager.index + 1);">Next</button>
+        <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+        <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+      </div>
+    </div>
+  
+    <div class="row text-center" *ngIf="mode=='review'">
+      <div class="col-4 cursor-pointer" *ngFor="let question of poll.questions; let index = index;">
+        <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) }}</div>
+      </div>
+    </div>
+    <div class="result" *ngIf="mode=='result'">
+      <h2>Poll Result</h2>
+      <div *ngFor="let question of poll.questions; let index = index">
+        <div class="result-question">
+          <h5>{{index + 1}}. {{question.name}}</h5>
+          <div class="row">
+            <div class="col-6" *ngFor="let Option of question.options">
+              <input id="{{Option.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Option.selected" /> {{Option.name}}
+            </div>
+          </div>
+          <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div>
+        </div>
+      </div>
+      <h4 class="alert alert-info text-center">You may close this window now.</h4>
+    </div>
+    <hr />
+    <div *ngIf="mode!='result'">
+      <button class="btn btn-warning" (click)="mode = 'poll'">Poll</button>
+      <button class="btn btn-info" (click)="mode = 'review'">Review</button>
+      <button class="btn btn-primary" (click)="onSubmit();">Submit Poll</button>
+    </div>
+  </div>
