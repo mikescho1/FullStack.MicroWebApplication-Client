@@ -4,11 +4,11 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatComponent } from './components/chat/chat.component';
+
 import { NewMessageComponent } from './components/new-message/new-message.component';
 import { ChatMessages } from './components/hub/chat-messages/chat-messages.component';
 import { LeftSideBarComponent } from './components/hub/left-side-bar/left-side-bar.component';
-import { ChatListComponent } from './components/chat-list/chat-list.component';
+import { ChatListComponent } from './components/hub/chat-list/chat-list.component';
 import { NavBarComponent } from './components/navbar/navbar.component';
 import { HubComponent } from './components/hub/hub.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -20,14 +20,16 @@ import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the
 
 import { MomentModule } from 'angular2-moment';
 import { UserMessagesComponent } from './components/hub/user-messages/user-messages.component';
-import { RightSideBarComponent } from './components/hub/right-side-bar/right-side-bar.component'; // optional, provides moment-style pipes for date formatting
+import { RightSideBarComponent } from './components/hub/right-side-bar/right-side-bar.component';
+import { CreateChatComponent } from './components/hub/create-chat/create-chat.component';
+import { HomeComponent } from './home/home.component'; // from login tutorial ---MS
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent,
     NewMessageComponent,
     ChatMessages,
     LeftSideBarComponent,
@@ -40,6 +42,8 @@ import { RightSideBarComponent } from './components/hub/right-side-bar/right-sid
     PollComponent,
     UserMessagesComponent,
     RightSideBarComponent,
+    CreateChatComponent,
+    HomeComponent // From login tutorial ---MS
   ],
   imports: [
     BrowserModule,

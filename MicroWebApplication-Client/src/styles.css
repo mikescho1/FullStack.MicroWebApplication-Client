@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Begin login tutorial code ---MS */
+a {
+    cursor: pointer;
+}
+
+.help-block {
+    font-size: 12px;
+}
+/* End login tutorial code ---MS */

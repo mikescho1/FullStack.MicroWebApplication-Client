@@ -13,6 +13,7 @@ export class AppComponent {
   timedOut = false;
   lastPing?: Date = null;
 
+  // Begin user idle/active status code ---MS ----------------------------
   constructor(private idle: Idle, private keepalive: Keepalive) {
     // sets an idle timeout of 5 seconds, for testing purposes.
     idle.setIdle(5);
@@ -42,4 +43,7 @@ export class AppComponent {
     this.idleState = 'Started.';
     this.timedOut = false;
   }
+  // End user idle/active status code ---MS ----------------------------
+
+
 }
